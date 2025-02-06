@@ -1,0 +1,74 @@
+data:
+  class_path: bochemian.data.module.BaseDataModule
+  init_args:
+    data_path: data/processed/bh_reaction_1_procedure_template_basic.csv
+    input_column: ada_embeddings_3_256
+    target_column: yield
+    featurizer:
+      class_path: bochemian.data.module.Featurizer
+      init_args:
+        task: reaction_optimization
+        representation: precalculated
+    initializer:
+      class_path: bochemian.initialization.initializers.BOInitializer
+      init_args:
+        method: kmeans
+        metric: jaccard
+        n_clusters: 10
+        init: k-means++
+        use_pca: null
+        seed: null
+bo:
+  class_path: bochemian.bo.optimizer.BotorchOptimizer
+  init_args:
+    batch_strategy: "kriging"
+    batch_size: 5
+    finetuning: true
+    emb_criterion: null
+    threshold: 0.1
+    margin: 0.2
+    concat: true
+acquisition:
+  class_path: botorch.acquisition.ExpectedImprovement
+  init_args:
+    maximize: True
+surrogate_model:
+  class_path: bochemian.surrogate_models.gp.SimpleGP
+  init_args:
+    likelihood:
+      class_path: gpytorch.likelihoods.GaussianLikelihood
+      init_args:
+        noise_prior: null
+        noise_constraint: null
+        batch_shape:
+          class_path: torch.Size
+    covar_module:
+      class_path: gpytorch.kernels.ScaleKernel
+      init_args:
+        base_kernel:
+          class_path: gpytorch.kernels.MaternKernel
+          init_args:
+            nu: 2.5
+            ard_num_dims: null
+            batch_shape: null
+            active_dims: null
+            lengthscale_prior: null
+            lengthscale_constraint: null
+            eps: 1.0e-06
+        outputscale_prior: null
+        outputscale_constraint: null
+        ard_num_dims: null
+        batch_shape: null
+        active_dims: null
+        lengthscale_prior: null
+        lengthscale_constraint: null
+        eps: 1.0e-06
+    mean_module: null
+    standardize: true
+    normalize: true
+    initial_noise_val: 1.0
+    noise_constraint: 1.0e-04
+    initial_outputscale_val: 1.0
+    initial_lengthscale_val: 0.5
+n_iters: 20
+seed: 1
