@@ -38,24 +38,97 @@
     </a>
 </p>
 
-Bayesian optimization for targeting specific nanocrystal shapes of electrocatalysts
+<h1 align="center">
+  BOLUDO 🔮
+</h1>
 
-## 💪 Getting Started
+<p align="center">
+Code accompanying the paper <a href="https://pubs.acs.org/doi/10.1021/jacs.4c17283">A Holistic Data-Driven Approach to Synthesis Predictions of Colloidal Nanocrystal Shapes</a>
+</p>
+
+<p align="center">
+<i>Bayesian Optimization for nanocrystaL strUcture Design Optimization</i><br>
+<small>But really, it's the work of <b>Bo</b>jana Ranković and <b>Ludo</b>vic Zaza, under the supervision of Prof. Raffaella Buonsanti and Prof. Philippe Schwaller, bringing Bayesian optimization into the chemistry lab and discovering new nanocrystal morphologies! 🚀</small>
+
+<small>Also, we fully acknowledge the meaning of "boludo" in Argentine Spanish slang - turns out even crystals can be shaped by a couple of friendly boludos. 😂</small>
+</p>
+
+
+## 🎯 Overview
+
+<p align="center">
+  <img src="docs/source/figures/overview-figure.png" width="800" alt="BOLUDO Workflow">
+  <br>
+  <em>Figure 1: Complete workflow showing ELN integration, BO model fitting, and experimental validation</em>
+</p>
+
+BOLUDO is a machine learning framework that revolutionizes nanocrystal synthesis by:
+- Predicting nanocrystal shapes from reaction conditions
+- Suggesting optimal reaction parameters for target shapes
+- Operating effectively with limited data (<200 experimental points)
+- Enabling discovery of new nanocrystal shapes through continuous energy scale mapping
+
+
+
+## ✨ Model Architecture
+
+The system consists of three main components:
+
+1. **Data Processing Pipeline**
+   - ELN data extraction
+   - Feature engineering
+   - Synthesis parameter standardization
+
+2. **Machine Learning Models**
+   - Random Forest for interpretable predictions
+   - Gaussian Process for Bayesian optimization
+   - Surface energy scale mapping
+
+3. **Optimization Framework**
+   - Bayesian optimization for parameter space exploration
+   - Multi-objective optimization capabilities
+   - Uncertainty quantification
+
+<p align="center">
+  <img src="docs/source/figures/feature-importances.png" width="600" alt="Parameter Importance">
+  <br>
+  <em>Figure 2: Visualization of parameter importance in nanocrystal shape prediction</em>
+</p>
+
+
+<!-- ## 💪 Getting Started
 
 > TODO show in a very small amount of space the **MOST** useful thing your package can do.
-> Make it as short as possible! You have an entire set of docs for later.
+> Make it as short as possible! You have an entire set of docs for later. -->
 
-### Command Line Interface
+<!-- ### Command Line Interface
 
 The boludo command line tool is automatically installed. It can
 be used from the shell with the `--help` flag to show all subcommands:
 
 ```shell
 $ boludo --help
-```
+``` -->
 
-> TODO show the most useful thing the CLI does! The CLI will have documentation auto-generated
-> by `sphinx`.
+<!-- > TODO show the most useful thing the CLI does! The CLI will have documentation auto-generated
+> by `sphinx`. -->
+
+
+
+
+## 🏆 Results
+
+Our framework has achieved significant breakthroughs:
+- Successfully predicted synthesis conditions for various Cu nanocrystal shapes and vice versa
+- Discovered <b style="color: maroon;"> novel synthesis pathways</b>
+- Achieved <b style="color: maroon;">first-time synthesis</b> of <b style="color: maroon;">Cu rhombic dodecahedron</b> shape
+- Demonstrated effectiveness with only <b>115 initial data points</b>
+
+<p align="center">
+  <img src="docs/source/figures/rhombic.jpeg" width="800" alt="BOLUDO Workflow">
+  <br>
+  <em>Figure 1: Complete workflow showing ELN integration, BO model fitting, and experimental validation</em>
+</p>
 
 ## 🚀 Installation
 
@@ -74,6 +147,23 @@ The most recent code and data can be installed directly from GitHub with:
 $ pip install git+https://github.com/schwallergroup/boludo.git
 ```
 
+## 📚 Citation
+
+```bibtex
+@article{zaza2024holistic,
+  title={A Holistic Data-Driven Approach to Synthesis Predictions of Colloidal Nanocrystal Shapes},
+  author={Zaza, Ludovic and Rankovic, Bojana and Schwaller, Philippe and Buonsanti, Raffaella},
+  journal={Journal of the American Chemical Society},
+  year={2024},
+  doi={10.1021/jacs.4c17283}
+}
+```
+
+
+## 💰 Acknowledgments
+
+This work was supported by NCCR Catalysis, a National Centre of Competence in Research funded by the Swiss National Science Foundation (grant number 180544).
+
 ## 👐 Contributing
 
 Contributions, whether filing an issue, making a pull request, or forking, are appreciated. See
@@ -85,11 +175,6 @@ Contributions, whether filing an issue, making a pull request, or forking, are a
 
 The code in this package is licensed under the MIT License.
 
-<!--
-### 📖 Citation
-
-Citation goes here!
--->
 
 <!--
 ### 🎁 Support
