@@ -3,7 +3,7 @@
   <img src="https://github.com/schwallergroup/boludo/raw/main/docs/source/logo.png" height="150">
 </p>
 -->
-
+<!--
 <h1 align="center">
   
 </h1>
@@ -37,7 +37,7 @@
         <img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"/>
     </a>
 </p>
-
+-->
 <h1 align="center">
   BOLUDO 🔮
 </h1>
